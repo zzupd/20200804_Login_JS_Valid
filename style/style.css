@@ -4,13 +4,15 @@
 	box-sizing: border-box;
 }
 
-div#wrap>div {
+div#wrap div.loginFrame {
 	width: 410px;
 	border: 1px solid #ccc;
+
+    position: relative;
 }
 
 
-div#wrap>div:last-child {
+div#wrap>div {
 	text-align: center;
 	padding: 10px;
 	border-top: none;
@@ -44,4 +46,21 @@ div button {
 
 table td {
 	padding: 10px;
+}
+
+form#frm span.msg {
+    color: #f00;
+    font-size: 12px;
+/*    border: 1px solid #f00;*/
+    position: absolute;
+    left: 126px;
+    display: none;
+}
+form#frm span#uID_Msg {
+    left: 140px;
+    top: 44px;
+}
+form#frm span#uPW_Msg {
+    left: 114px;
+    top: 116px;
 }

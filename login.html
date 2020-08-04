@@ -1,41 +1,83 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="style/style.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
 </head>
+
 <body>
-<div id="wrap">
-	<h1>테이블요소</h1>
 
-	<div>
-		<table>
-			<tbody>
-				<tr>
-					<td>
-						<input type="text" placeholder="아이디">
-					</td>
-					<td rowspan="2">
-						<button>로그인</button>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type="password" placeholder="비밀번호">
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<div>
-		<span>회원가입</span>
-		&nbsp;&nbsp;|&nbsp;&nbsp;
-		<span>아이디찾기</span>
-		&nbsp;&nbsp;|&nbsp;&nbsp;
-		<span>비밀번호 찾기</span>
-	</div>
+    <div id="wrap">
+        <h1>테이블요소</h1>
 
-</div>
-</body>
-</html>
+
+
+        <form action="https://www.naver.com" id="frm">
+
+            <div class="loginFrame" id="loginFrame">
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="text" placeholder="아이디" id="userID">
+                                <span id="uID_Msg" class="msg">아이디를 입력하세요.</span>
+                            </td>
+
+
+                            <td rowspan="2">
+                                <button type="button" onclick="fnSbm()">로그인</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="password" placeholder="비밀번호" id="userPW">
+                                <span id="uPW_Msg" class="msg">비밀번호를 입력해주세요.</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div> <!-- div#loginFrame -->
+
+        </form>
+
+        <div class="loginFrame">
+            <span>회원가입</span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <span>아이디찾기</span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <span>비밀번호 찾기</span>
+        </div>
+
+    </div> <!-- div#wrap -->
+
+
+    <script>
+        function fnSbm() {
+
+            var frm = document.getElementById("frm");
+
+            var uID = document.getElementById("userID");
+            var userID = uID.value;
+            var uPW = document.getElementById("userPW");
+            var userPW = uPW.value;
+
+            if (userID == "") {  // ID 가 공백일 때(PW 는 무시함)
+                document.getElementById("uID_Msg").style.display = "block";
+                document.getElementById("uPW_Msg").style.display = "none";
+                uID.focus();
+
+            } else if (userPW == "") {    // PW 가 공백일 때(ID 는 무시함)
+                document.getElementById("uID_Msg").style.display = "none";
+                document.getElementById("uPW_Msg").style.display = "block";
+                uPW.focus();
+
+            } else {
+                frm.submit();
+            }
+
+        }
+    </script>
+</body></html>
